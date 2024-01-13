@@ -1,0 +1,22 @@
+.cateringSlides {
+  width: 100%;
+  height: 102%;
+  margin-top: -1rem;
+  object-fit: cover;
+  /* -webkit-filter: brightness(90%) contrast(90%) blur(2px) grayscale(10%);
+filter: brightness(90%) contrast(90%) blur(2px) grayscale(10%); */
+}
+
+.prevNav {
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  background-color: beige;
+}
+
+.nextNav {
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  background-color: beige;
+}

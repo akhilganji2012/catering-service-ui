@@ -1,0 +1,17 @@
+<mat-card class="itemCard">
+  <img class="itemImage" src="{{ foodItem.imageLocation }}" />
+  <mat-card-actions class="cardAction">
+    <div>
+      <button mat-icon-button (click)="test()" class="card-icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button (click)="addFoodItem()" class="card-icon">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </div>
+    <div class="itemDescription">
+      <span class="itemLabel">{{ foodItem.name }}</span>
+      <span class="itemPrice">${{ foodItem.price }}</span>
+    </div>
+  </mat-card-actions>
+</mat-card>

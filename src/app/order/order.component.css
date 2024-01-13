@@ -1,0 +1,10 @@
+.classGrid{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.item{
+  width: 20%;
+  margin: 1.5rem;
+}

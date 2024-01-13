@@ -1,0 +1,46 @@
+.title-spacer {
+  flex: 1 1 auto;
+}
+
+.title-icon:hover {
+  transform: scale(1.2);
+}
+
+.dot {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  background-color: black;
+  display: inline-block;
+  border-radius: 50%;
+  top: 1.4rem;
+  right: 0.025rem;
+}
+.dotLabel{
+  position: relative;
+  font-size: 0.75rem;
+}
+
+.shake {
+  animation-name: shake-animation;
+  animation-duration: 0.5s;
+}
+
+@keyframes shake-animation {
+  10%, 90% {
+    transform: translate3d(-0.5px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(3px, 0, 0);
+  }
+}
+

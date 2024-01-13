@@ -1,0 +1,110 @@
+<div class="checkOutStepper">
+  <button mat-raised-button color="primary" routerLink="/">
+    Go back to Menu
+  </button>
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup" class="userInfoGrid">
+        <ng-template matStepLabel>Fill out your information</ng-template>
+        <mat-form-field class="userField">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            placeholder=" Enter First name"
+            formControlName="firstName"
+            required
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="userField">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            placeholder=" Enter Last name"
+            formControlName="lastName"
+            required
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="userField">
+          <mat-label>Phone no</mat-label>
+          <input
+            matInput
+            placeholder=" Enter Phone no"
+            formControlName="phone"
+            required
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="userField">
+          <mat-label>Email address</mat-label>
+          <input
+            matInput
+            placeholder=" Enter Email address"
+            formControlName="email"
+            [email]="true"
+            required
+          />
+        </mat-form-field>
+      </form>
+      <div>
+        <button class="nxtBtn" mat-raised-button matStepperNext color="primary">Next</button>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Select a pickup location">
+      <form [formGroup]="secondFormGroup">
+        <mat-radio-group>
+          <mat-card class="itemCard">
+            <mat-card-content class="cardAction">
+              <mat-radio-button value="{{ a }}"></mat-radio-button>
+              7840 Clara Dr, Plano, TX - 75024
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="itemCard">
+            <mat-card-content class="cardAction">
+              <mat-radio-button value="{{ b }}"></mat-radio-button>
+              4759 Addington Ct, Moorpark, CA - 93021
+            </mat-card-content>
+          </mat-card>
+        </mat-radio-group>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepickerFilter]="holidayDateFilter" [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Review Order</ng-template>
+      <mat-card *ngFor="let foodItem of orderItems.items" class="itemCard">
+        <mat-card-content class="cardContent">
+          <div class="itemDescription">
+            <img class="itemImage" src="{{ foodItem.imageLocation }}" />
+            <div class="itemLabel">{{ foodItem.name }}</div>
+            <div class="itemPrice">${{ foodItem.price }}</div>
+            <div>X{{ foodItem.quantity }}</div>
+            <div>
+              ${{
+                foodItem.price && foodItem.quantity
+                  ? foodItem.price * foodItem.quantity
+                  : 0
+              }}
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <h4>Total: {{ total }}</h4>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+      <button mat-raised-button color="primary">Confirm</button>
+    </mat-step>
+  </mat-stepper>
+</div>

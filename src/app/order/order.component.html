@@ -1,0 +1,7 @@
+
+<div *ngFor="let categoryItem of obj">
+  <h1>{{categoryItem.name}}</h1>
+  <div class="classGrid">
+    <app-item *ngFor="let foodItem of categoryItem.foodItems" [foodItem]="foodItem" class="item"></app-item>
+  </div>
+</div>
