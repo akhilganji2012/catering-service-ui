@@ -37,6 +37,7 @@ const routes: Routes = [
     component: HomePageComponent,
     children: [{ path: 'checkOutPage', component: CheckOutPageComponent }],
   }
+  
   // ,
   // {
   //   path:'checkOutPage', component: CheckOutPageComponent
