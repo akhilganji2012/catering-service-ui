@@ -1,0 +1,50 @@
+.order-dialog-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialog {
+  height: 80vh;
+  width: 80vw;
+}
+
+.itemImage {
+  width: 4rem;
+  height: 3rem;
+  object-fit: cover;
+}
+
+.itemCard {
+  background: #eee;
+  width: 90%;
+  height: 5rem;
+  margin: 1rem;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.itemCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.itemDescription {
+  width: 80%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.checkOutButton {
+  left: 40%;
+  width: 20%;
+  padding: 1rem;
+}
+
+.itemLabel {
+  width: 50%;
+}

@@ -79,3 +79,15 @@
   height: 3rem;
   margin-left: 46vw;
 }
+
+.backToMenu{
+  margin-left: 1rem;
+}
+
+.cardAction{
+  display: flex;
+  justify-content: space-between;
+}
+.map{
+  transform: scale(1.5);
+}

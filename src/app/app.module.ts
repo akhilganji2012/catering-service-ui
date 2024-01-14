@@ -1,3 +1,4 @@
+import { FavouriteReviewDialogComponent } from './dialog/favourite-review-dialog/favourite-review-dialog.component';
 import { UtilsService } from './utils/utils.service';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,19 +30,21 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FavouriteService } from './services/favourite.service';
+import { OrderStatusComponent } from './order-status/order-status.component';
 
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomePageComponent,
-    children: [{ path: 'checkOutPage', component: CheckOutPageComponent }],
+    path: '', component: HomePageComponent
   }
-  
-  // ,
-  // {
-  //   path:'checkOutPage', component: CheckOutPageComponent
-  // }
+  ,
+  {
+    path:'checkOutPage', component: CheckOutPageComponent
+  },
+  {
+    path:'orderStatus', component: OrderStatusComponent
+  }
 ];
 
 @NgModule({
@@ -54,11 +57,12 @@ const routes: Routes = [
     OrderReviewDialogComponent,
     CheckOutPageComponent,
     HomePageComponent,
+    FavouriteReviewDialogComponent,
+    OrderStatusComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    // AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatMenuModule,
@@ -77,9 +81,8 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  // schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [RouterModule],
-  providers: [OrderService, UtilsService],
+  providers: [OrderService, UtilsService, FavouriteService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

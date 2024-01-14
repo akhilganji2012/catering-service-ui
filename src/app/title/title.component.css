@@ -8,23 +8,35 @@
 
 .dot {
   position: absolute;
-  height: 1rem;
+  /*height: 1rem;
   width: 1rem;
   background-color: black;
   display: inline-block;
-  border-radius: 50%;
+  border-radius: 50%; */
   top: 1.4rem;
-  right: 0.025rem;
+  /* right: -4%; */
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  padding: 3px;
+  right:0rem;
+  background: black;
+  border: 2px solid #666;
+  color: white;
+  text-align: center;
+  font: 11px Arial, sans-serif;
 }
 .dotLabel{
   position: relative;
   font-size: 0.75rem;
+  color: white;
 }
 
 .shake {
   animation-name: shake-animation;
   animation-duration: 0.5s;
 }
+
 
 @keyframes shake-animation {
   10%, 90% {

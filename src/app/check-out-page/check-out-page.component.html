@@ -1,5 +1,5 @@
 <div class="checkOutStepper">
-  <button mat-raised-button color="primary" routerLink="/">
+  <button mat-raised-button color="primary" routerLink="/" class="backToMenu">
     Go back to Menu
   </button>
   <mat-stepper [linear]="isLinear" #stepper>
@@ -48,30 +48,45 @@
         </mat-form-field>
       </form>
       <div>
-        <button class="nxtBtn" mat-raised-button matStepperNext color="primary">Next</button>
+        <button class="nxtBtn" mat-raised-button matStepperNext color="primary">
+          Next
+        </button>
       </div>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" label="Select a pickup location">
+      <h2>Select pick up location:</h2>
       <form [formGroup]="secondFormGroup">
         <mat-radio-group>
-          <mat-card class="itemCard">
+          <mat-card *ngFor="let address of addressList" class="itemCard">
             <mat-card-content class="cardAction">
-              <mat-radio-button value="{{ a }}"></mat-radio-button>
-              7840 Clara Dr, Plano, TX - 75024
-            </mat-card-content>
-          </mat-card>
-          <mat-card class="itemCard">
-            <mat-card-content class="cardAction">
-              <mat-radio-button value="{{ b }}"></mat-radio-button>
-              4759 Addington Ct, Moorpark, CA - 93021
+              <div class="addressDesc">
+                <mat-radio-button></mat-radio-button>
+                {{ address }}
+              </div>
+              <div>
+                <a
+                  target="_blank"
+                  href="https://maps.app.goo.gl/UHmcpWKxHSD663iq9"
+                >
+                  <mat-icon class="map">map</mat-icon>
+                </a>
+              </div>
             </mat-card-content>
           </mat-card>
         </mat-radio-group>
+        <h2>Select Date of pick up:</h2>
         <mat-form-field>
           <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepickerFilter]="holidayDateFilter" [matDatepicker]="picker">
+          <input
+            matInput
+            [matDatepickerFilter]="holidayDateFilter"
+            [matDatepicker]="picker"
+          />
           <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <div>

@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="order-dialog-title">
+  <span><h1>Favorite Items</h1></span>
+  <button mat-icon-button class="close-icon" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-card *ngFor="let foodItem of favouriteItems" class="itemCard">
+  <mat-card-content class="cardContent">
+    <div class="itemDescription">
+      <img class="itemImage" src="{{ foodItem.imageLocation }}" />
+      <div class="itemLabel">{{ foodItem.name }}</div>
+    </div>
+    <div>
+      <button mat-icon-button (click)="removeFoodItem(foodItem.id)" class="card-icon">
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+      <!-- <button mat-icon-button (click)="addFoodItem(foodItem)" class="card-icon">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button> -->
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<div *ngIf="favouriteItems.length === 0"> Ohh... Favourites looks empty.. 🥲 </div>

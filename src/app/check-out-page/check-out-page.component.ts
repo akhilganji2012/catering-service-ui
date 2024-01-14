@@ -13,6 +13,8 @@ export class CheckOutPageComponent implements OnInit{
   a =true;
   b= false;
 
+  addressList =['7840 Clara Dr, Plano, TX - 75024','4759 Addington Ct, Moorpark, CA - 93021'];
+
   holidayDateFilter: DateFilterFn<Date | null> = (d: Date | null): boolean => {
     // check if date is weekend day
     if (d && (d.getDay() === 0 || d.getDay() === 6)) {
@@ -24,7 +26,7 @@ export class CheckOutPageComponent implements OnInit{
   firstFormGroup = this._formBuilder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    phone: ['', Validators.required],
+    phone: ['', Validators.compose([Validators.pattern('[0-9]{10}'), Validators.required])],
     email: ['', Validators.required]
   });
   secondFormGroup = this._formBuilder.group({

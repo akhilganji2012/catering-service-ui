@@ -3,14 +3,14 @@
     <mat-icon>menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>Order Status</button>
+    <button mat-menu-item (click)="navOrderStatusPage()">Order Status</button>
     <button mat-menu-item>About Us</button>
     <button mat-menu-item>Review</button>
   </mat-menu>
   <span class="title-spacer"></span>
   <span><h1>Larsan Catering Services</h1></span>
   <span class="title-spacer"></span>
-  <button mat-icon-button class="title-icon">
+  <button [ngClass]="{ shake: favShakeIt }" mat-icon-button class="title-icon" (click)="openFavouriteReviewDialog()">
     <mat-icon>favorite</mat-icon>
   </button>
   <div [ngClass]="{ shake: shakeIt }">
@@ -19,8 +19,8 @@
       class="title-icon"
       (click)="openOrderReviewDialog()">
       <mat-icon>shopping_cart</mat-icon>
-      <div class="dot"></div>
-      <span class="dotLabel">{{ noOfItems }}</span>
+      <div class="dot">{{ noOfItems }}</div>
+      <!-- <span class="dotLabel">{{ noOfItems }}</span> -->
     </button>
   </div>
 </mat-toolbar>
