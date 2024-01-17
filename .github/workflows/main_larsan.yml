@@ -26,6 +26,7 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+        working-directory: .
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
@@ -66,6 +67,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'larsan'
-          slot-name: 'Production'
-          package: .
+          # slot-name: 'Production'
+          package: ./dist/catering-service-ui
           
