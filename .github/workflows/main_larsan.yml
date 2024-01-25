@@ -24,7 +24,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run build --prod
+          npm run build --configuration "production"
           # npm run test --if-present
         working-directory: .
 
@@ -54,7 +54,7 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-      
+
       - name: Login to Azure
         uses: azure/login@v1
         with:
@@ -69,4 +69,4 @@ jobs:
           app-name: 'larsan'
           # slot-name: 'Production'
           package: ./dist/catering-service-ui
-          
+
