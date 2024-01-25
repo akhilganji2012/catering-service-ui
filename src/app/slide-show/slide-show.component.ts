@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class SlideShowComponent implements OnInit {
   slides: string[] = [
     'assets/catering-1.jpg',
-    'assets/catering-2.jpg',
+    'assets/catering-2.jpeg',
     'assets/catering-3.jpg',
-    'assets/catering-4.jpg',
+    'assets/catering-4.jpeg',
   ];
   index = 0;
 

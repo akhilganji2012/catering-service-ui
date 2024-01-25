@@ -1,17 +1,18 @@
-<app-slide-show class="slide" #slide></app-slide-show>
+<div #top class=""></div>
+<app-slide-show class="slide"></app-slide-show>
 <button
   mat-raised-button
   color="primary"
   class="order"
-  (click)="scrollToBottom(upNav)"
+  (click)="scrollToView(upNav)"
 >
   Order Now
   <mat-icon>keyboard_arrow_down</mat-icon>
 </button>
 <br />
 <div #upNav>
-  <button mat-icon-button class="upwardNav" (click)="scrollToBottom(upNav)">
-  <mat-icon>keyboard_arrow_down</mat-icon>
+  <button mat-icon-button class="upwardNav" (click)="scrollToView(top)">
+  <mat-icon>keyboard_arrow_up</mat-icon>
 </button>
 </div>
 <div #orderMenu class="orderPage">

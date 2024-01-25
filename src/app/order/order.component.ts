@@ -34,7 +34,7 @@ export class OrderComponent implements OnInit {
     } as Food,
     {
       name: 'Naatu kodi Soup',
-      imageLocation: 'assets/naatu-kodi-soup.jpg',
+      imageLocation: 'assets/naatu-kodi-soup.jpeg',
       id: '004',
       price: 9.99,
     } as Food,
@@ -48,13 +48,13 @@ export class OrderComponent implements OnInit {
   appetizerFoodItems = [
     {
       name: 'Onion Samosa',
-      imageLocation: 'assets/catering-1.jpg',
+      imageLocation: 'assets/samosa.jpeg',
       id: '006',
       price: 9.99,
     } as Food,
     {
       name: 'Chicken wings',
-      imageLocation: 'assets/catering-2.jpg',
+      imageLocation: 'assets/wings.jpg',
       id: '007',
       price: 9.99,
     } as Food,
@@ -62,13 +62,13 @@ export class OrderComponent implements OnInit {
   biryaniFoodItems = [
     {
       name: 'Chicken biryani',
-      imageLocation: 'assets/catering-3.jpg',
+      imageLocation: 'assets/chicken-biryani.jpeg',
       id: '008',
       price: 9.99,
     } as Food,
     {
       name: 'Chicken boneless biryani',
-      imageLocation: 'assets/veg-soup.jpg',
+      imageLocation: 'assets/biryani.jpg',
       id: '009',
       price: 9.99,
     } as Food,

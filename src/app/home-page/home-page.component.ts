@@ -11,10 +11,8 @@ export class HomePageComponent {
 
   }
 
-  scrollToBottom(el: HTMLElement): void {
+  scrollToView(el: HTMLElement): void {
     el.scrollIntoView({ behavior: 'smooth', block: "start", inline: "start" });
   }
-  // scrollToTop(el: HTMLElement): void {
-  //   el.scrollTo(0,1000);
-  // }
+
 }
