@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Food } from '../../data/food';
+import { Food } from '../../data/Food';
 import { OrderService } from '../../services/order.service';
 import { OrderReviewDialogComponent } from '../order-review-dialog/order-review-dialog.component';
 import { FavouriteService } from '../../services/favourite.service';

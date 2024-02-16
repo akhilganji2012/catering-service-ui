@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { Food } from '../data/food';
+import { Food } from '../data/Food';
 import { OrderService } from '../services/order.service';
 import { DateFilterFn } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-check-out-page',
   templateUrl: './check-out-page.component.html',
-  styleUrls: ['./check-out-page.component.css']
+  styleUrls: ['./check-out-page.component.css'],
 })
-export class CheckOutPageComponent implements OnInit{
-  a =true;
-  b= false;
+export class CheckOutPageComponent implements OnInit {
+  a = true;
+  b = false;
 
-  addressList =['7840 Clara Dr, Plano, TX - 75024','4759 Addington Ct, Moorpark, CA - 93021'];
+  addressList = [
+    '7840 Clara Dr, Plano, TX - 75024',
+    '4759 Addington Ct, Moorpark, CA - 93021',
+  ];
 
   holidayDateFilter: DateFilterFn<Date | null> = (d: Date | null): boolean => {
     // check if date is weekend day
-    if (d && (d.getDay() === 0 || d.getDay() === 6)) {
+    let currDate = new Date();
+    if (d && d > currDate && (d.getDay() === 0 || d.getDay() === 6)) {
       return true;
     }
     return false;
@@ -26,20 +30,28 @@ export class CheckOutPageComponent implements OnInit{
   firstFormGroup = this._formBuilder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    phone: ['', Validators.compose([Validators.pattern('[0-9]{10}'), Validators.required])],
-    email: ['', Validators.required]
+    phone: [
+      '',
+      Validators.compose([
+        Validators.pattern('[0-9]{10}'),
+        Validators.required,
+      ]),
+    ],
+    email: ['', Validators.required],
   });
   secondFormGroup = this._formBuilder.group({
     secondCtrl: [''],
   });
   isLinear = true;
 
-  constructor(private _formBuilder: FormBuilder, private orderService: OrderService) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    private orderService: OrderService
+  ) {}
 
   orderItems = { items: [] as Food[] };
 
   total = 0;
-
 
   ngOnInit(): void {
     this.orderService.getFoodList().subscribe((foodItemList) => {
@@ -73,10 +85,7 @@ export class CheckOutPageComponent implements OnInit{
     });
   }
 
-  multiply(a: number, b: number){
-    return a*b;
+  multiply(a: number, b: number) {
+    return a * b;
   }
-
-
-
 }

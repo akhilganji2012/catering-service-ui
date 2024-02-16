@@ -32,6 +32,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FavouriteService } from './services/favourite.service';
 import { OrderStatusComponent } from './order-status/order-status.component';
+import { RestService } from './services/rest.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
@@ -73,6 +75,7 @@ const routes: Routes = [
     MatMenuModule,
     MatDialogModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -82,7 +85,7 @@ const routes: Routes = [
     MatNativeDateModule
   ],
   exports: [RouterModule],
-  providers: [OrderService, UtilsService, FavouriteService],
+  providers: [OrderService, UtilsService, FavouriteService, RestService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

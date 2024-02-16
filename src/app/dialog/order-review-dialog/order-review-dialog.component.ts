@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from '../../services/order.service';
-import { Food } from '../../data/food';
+import { Food } from '../../data/Food';
 
 @Component({
   selector: 'app-order-review-dialog',

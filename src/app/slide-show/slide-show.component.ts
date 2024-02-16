@@ -1,3 +1,5 @@
+import { Slide } from '../data/Slide';
+import { RestService } from './../services/rest.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,35 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slide-show.component.css'],
 })
 export class SlideShowComponent implements OnInit {
-  slides: string[] = [
-    'assets/catering-1.jpg',
-    'assets/catering-2.jpeg',
-    'assets/catering-3.jpg',
-    'assets/catering-4.jpeg',
-  ];
+  data: Slide[] = [];
+  constructor(private restService: RestService) {}
+
   index = 0;
 
   ngOnInit(): void {
-    this.recurssiveFun();
+    this.restService.getSlides().subscribe((slides) => {
+      this.data = slides;
+      console.log(slides);
+      this.recurssiveFun();
+    });
   }
 
   getSlide() {
-    return this.slides[this.index];
+    return (this.data.length > 0)?this.data[this.index].imageSrcUrl:'';
   }
 
   getPrev() {
-    this.index = this.index === 0 ? this.slides.length - 1 : this.index - 1;
+    this.index = this.index === 0 ? this.data.length - 1 : this.index - 1;
   }
 
   getNext() {
-    this.index = this.index === this.slides.length - 1 ? 0 : this.index + 1;
+    this.index = this.index === this.data.length - 1 ? 0 : this.index + 1;
   }
 
-  recurssiveFun(){
-    this.getNext();
-    setTimeout(()=>{
+  recurssiveFun() {
+    if (this.data.length > 0) this.getNext();
+    setTimeout(() => {
       this.recurssiveFun();
-    },3000);
+    }, 3000);
   }
-
 }

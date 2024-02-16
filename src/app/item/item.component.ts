@@ -1,7 +1,7 @@
 import { FavouriteService } from './../services/favourite.service';
 import { Component, Input } from '@angular/core';
 import { OrderService } from '../services/order.service';
-import { Food } from '../data/food';
+import { Food } from '../data/Food';
 import { Route, ActivatedRoute, Router } from '@angular/router';
 
 @Component({

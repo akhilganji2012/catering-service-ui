@@ -8,7 +8,7 @@
 <mat-card *ngFor="let foodItem of orderItems.items" class="itemCard">
   <mat-card-content class="cardContent">
     <div class="itemDescription">
-      <img class="itemImage" src="{{ foodItem.imageLocation }}" />
+      <img class="itemImage" src="{{ foodItem.imageSrcUrl }}" />
       <div class="itemLabel">{{ foodItem.name }}</div>
       <div class="itemPrice">${{ foodItem.price }}</div>
       <div>X{{ foodItem.quantity }}</div>
